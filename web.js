@@ -11,7 +11,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade'); // Do I have to use this ?
 
-app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', routes);
@@ -31,7 +30,10 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+app.listen(80);
 app.listen(8001);
+app.listen(443);
+
 
 console.log('Running');
 
