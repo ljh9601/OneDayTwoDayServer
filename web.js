@@ -26,7 +26,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-app.listen(80);
 app.listen(8001);
 app.listen(443);
 
