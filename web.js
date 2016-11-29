@@ -27,8 +27,6 @@ app.use(function(req, res, next) {
 });
 
 app.listen(8001);
-app.listen(443);
-
 
 console.log('Running');
 
