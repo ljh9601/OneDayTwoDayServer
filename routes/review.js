@@ -20,17 +20,39 @@ connection.connect(function(err){
     }
 });
 
-router.post('/register', bodyParser.urlencoded({
+router.get('/all', function (req, res) {
+    var query = connection.query('select * from `onedaytwoday_review` where `Uid`=\' ' + req.body.Uid + '\' ', [],
+        function(err, rows){
+            res.json(rows);
+            console.log(rows);
+        });
+});
+
+router.post('/update', bodyParser.urlencoded({ // CONTENT EDIT
     extended : true
 }), function(req, res){
     var data = {
         'Uid' : req.body.Uid,
-        'Pwd' : req.body.Pwd,
-        'Name' : req.body.Name,
-        'BDate' : req.body.BDate,
-        'Phone' : req.body.Phone
+        'Pid' : req.body.Pid,
+        'Content' : req.body.Content
     }
-    var query = connection.query('insert into `onedaytwoday_user` set ?', data, function (err, rows) {
+    var query = connection.query('update `onedaytwoday_review` set `content` =\'' + req.body.Content +
+        'where Uid = \'' + req.body.Uid + '\' and Pid = \'' + req.body.Pid + '\' ', [], function (err, rows) {
+        res.json(rows);
+        console.log(rows);
+    });
+});
+
+
+router.post('/new', bodyParser.urlencoded({ // NEW REVIEW
+    extended : true
+}), function(req, res){
+    var data = {
+        'Uid' : req.body.Uid,
+        'Pid' : req.body.Pid,
+        'Content' : req.body.Content
+    }
+    var query = connection.query('insert into `onedaytwoday_review` set ?', data, function (err, rows) {
         res.json(rows);
         console.log(rows);
     });

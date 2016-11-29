@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
     database : 'kimhwamin'
 });
 var router = express.Router();
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser'); // PUSH SERVER FCM TOKEN
 
 var FCM = require('fcm').FCM;
 var apikey = 'dsfasfewafawef';

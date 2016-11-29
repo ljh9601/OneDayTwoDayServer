@@ -19,7 +19,7 @@ connection.connect(function(err){
 });
 
 
-router.post('/login', bodyParser.urlencoded({
+router.post('/login', bodyParser.urlencoded({ // SIGN IN
     extended: true
 }), function(req, res) {
     var query = connection.query('select * FROM `onedaytwoday_user` where `Uid`=\'' + req.body.Uid + '\' AND `Pwd`=\'' +
@@ -30,7 +30,7 @@ router.post('/login', bodyParser.urlencoded({
     console.log(query);
 });
 
-router.get('/target',function(req, res){
+router.get('/target',function(req, res){ // FIND USER
     var query = connection.query('select * from `onedaytwoday_user` where `Uid`=\' ' + req.body.Uid + '\' ', [],
     function(err, rows){
        res.json(rows);
@@ -39,7 +39,7 @@ router.get('/target',function(req, res){
     console.log(query);
 });
 
-router.post('/register', bodyParser.urlencoded({
+router.post('/register', bodyParser.urlencoded({ // SIGN UP
   extended : true
 }), function(req, res){
   var data = {
@@ -50,7 +50,6 @@ router.post('/register', bodyParser.urlencoded({
     'Email' : req.body.Email,
     'Phone' : req.body.Phone
   }
-  console.log(data);
   var query = connection.query('insert into `onedaytwoday_user` set ?', data, function (err, rows) {
     res.json(rows);
     console.log(rows);
