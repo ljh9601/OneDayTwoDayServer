@@ -5,6 +5,7 @@ var users = require('./routes/users');
 var fcm = require('./routes/fcm');
 var job = require('./routes/job');
 var review = require('./routes/review');
+var path = require('path');
 var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
