@@ -50,6 +50,7 @@ router.post('/register', bodyParser.urlencoded({
     'Email' : req.body.Email,
     'Phone' : req.body.Phone
   }
+  console.log(data);
   var query = connection.query('insert into `onedaytwoday_user` set ?', data, function (err, rows) {
     res.json(rows);
     console.log(rows);
