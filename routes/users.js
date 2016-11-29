@@ -2,7 +2,7 @@ var express = require('express');
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host : '10.0.0.1',
-    port : '3306',
+    port : 3306,
     user : 'kimhwamin',
     password : 'onedaytwoday12',
     database : 'kimhwamin'
@@ -30,8 +30,13 @@ router.post('/login', bodyParser.urlencoded({
     console.log(query);
 });
 
-router.get('',function(req, res){
-
+router.get('/target',function(req, res){
+    var query = connection.query('select * from `onedaytwoday_user` where `Uid`=\' ' + req.body.Uid + '\' ', [],
+    function(err, rows){
+       res.json(rows);
+        console.log(rows);
+    });
+    console.log(query);
 });
 
 router.post('/register', bodyParser.urlencoded({

@@ -7,10 +7,6 @@ var job = require('./routes/job');
 var review = require('./routes/review');
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade'); // Do I have to use this ?
-
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', routes);
