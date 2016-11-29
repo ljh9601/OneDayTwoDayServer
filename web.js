@@ -7,7 +7,9 @@ var job = require('./routes/job');
 var review = require('./routes/review');
 var app = express();
 
-app.use(express.static(__dirname + '/public'));
+app.use(app.router);
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
