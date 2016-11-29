@@ -4,8 +4,8 @@ var connection = mysql.createConnection({
     host : 'localhost',
     port : 3306,
     user : 'root',
-    password : 'embedded12#',
-    database : 'onedaytwoday'
+    password : 'onedaytwoday12',
+    database : 'kimhwamin'
 });
 var router = express.Router();
 var bodyParser = require('body-parser');
