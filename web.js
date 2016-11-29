@@ -8,6 +8,9 @@ var review = require('./routes/review');
 var path = require('path');
 var app = express();
 
+app.set('view engine', 'jade');
+app.set('views', './views');
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
