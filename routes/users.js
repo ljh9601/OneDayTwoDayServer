@@ -42,6 +42,7 @@ router.post('/register', bodyParser.urlencoded({
     'Pwd' : req.body.Pwd,
     'Name' : req.body.Name,
     'BDate' : req.body.BDate,
+    'Email' : req.body.Email,
     'Phone' : req.body.Phone
   }
   var query = connection.query('insert into `onedaytwoday_user` set ?', data, function (err, rows) {
